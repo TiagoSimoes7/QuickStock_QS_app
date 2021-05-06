@@ -50,7 +50,7 @@ const SideBar = ({ history }) => {
         </Menu> */}
         <Menu iconShape="circle">
           <SubMenu title={"Products"} icon={<FaTruckLoading />}>
-            {/* <MenuItem onClick={() => history.push('/products')}>Manage Products</MenuItem> */}
+            {/* TESTTTTT */}
             <MenuItem onClick={() => history.push('/products')}>Manage Products</MenuItem>
             <MenuItem onClick={() => history.push('/createProduct')}>Create new Product</MenuItem>
             <MenuItem suffix={<span className="badge gray">Comming</span>}> Create VuMark</MenuItem>
