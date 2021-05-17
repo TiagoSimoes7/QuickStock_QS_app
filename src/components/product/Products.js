@@ -54,7 +54,7 @@ const Products = () => {
         
     return (
         <>
-            <h1>List of Productss</h1>
+            <h1>List of Products</h1>
             {products !== null ? <ProductsTable products={products} deleted={false} /> : 
                 <Loading />
             }
