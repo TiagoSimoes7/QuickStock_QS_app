@@ -77,7 +77,7 @@ const ProductsTable = (props) => {
                         <th style={{ textAlign: 'center' }}>Name</th>
                         <th style={{ textAlign: 'center' }}>Description</th>
                         <th style={{ textAlign: 'center' }}>Localization</th>
-                        <th style={{ textAlign: 'center' }}>Type</th>
+                        {/* <th style={{ textAlign: 'center' }}>Type</th> */}
                         <th style={{ textAlign: 'center' }}>Stock</th>
                         <th style={{ width: '250px', textAlign: 'center' }}>Actions</th>
                     </tr>
@@ -92,7 +92,7 @@ const ProductsTable = (props) => {
                                         <td style={{ textAlign: 'center' }}>{product.name}</td>
                                         <td>{product.description !== null ? product.description : '--'}</td>
                                         <td style={{ textAlign: 'center' }}>{product.localization !== null ? product.localization : '--'}</td>
-                                        <td style={{ textAlign: 'center' }}>{product.productType !== null && productType !== null ? productType.find(type => type.id === product.productType).type : '--'}</td>
+                                        {/* <td style={{ textAlign: 'center' }}>{product.productType !== null && productType !== null ? productType.find(type => type.id === product.productType).type : '--'}</td> */}
                                         <td style={{ textAlign: 'end' }}>{product.quantStock}</td>
                                         <td>
                                             <ButtonGroup style={{ display: 'flex' }}>
