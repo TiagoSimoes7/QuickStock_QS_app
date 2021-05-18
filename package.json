@@ -18,6 +18,7 @@
     "bootstrap": "^4.5.3",
     "curl": "^0.1.4",
     "firebase": "^8.2.1",
+    "forever": "^3.0.4",
     "hmacsha1": "^1.0.0",
     "md5": "^2.3.0",
     "node-sass": "^4.14.1",
