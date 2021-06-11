@@ -1,0 +1,6 @@
+projectKey=2021_project4
+serverUrl=https://sonar.creis.pt
+serverVersion=8.3.1.34397
+dashboardUrl=https://sonar.creis.pt/dashboard?id=2021_project4
+ceTaskId=AXnoERe-ycD9pccTjKhd
+ceTaskUrl=https://sonar.creis.pt/api/ce/task?id=AXnoERe-ycD9pccTjKhd
