@@ -64,6 +64,9 @@ const Login = ({history}) => {
                     <Form.Control name="password" type="password" placeholder="Enter your password" />
                 </Form.Group>
                 <div style={{marginTop: '10px', textAlign: 'right'}}>
+                    <Form.Text style={{float: 'left', fontSize: '100%'}} className="text-muted">
+                        If you don't have an account, <a class="font-weight-bold" style={{cursor: "pointer", marginLeft:'3px', color: 'black'}} onClick={() => history.push('/signUp')}>create one</a>
+                    </Form.Text>
                     <Button style={{width: '150px'}}type="submit">
                         Log In
                     </Button>
