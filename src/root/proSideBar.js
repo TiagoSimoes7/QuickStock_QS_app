@@ -49,7 +49,7 @@ const SideBar = ({ history }) => {
           </MenuItem>
         </Menu> */}
         <Menu iconShape="circle">
-          <SubMenu title={"Proooducts"} icon={<FaTruckLoading />}>
+          <SubMenu title={"Products"} icon={<FaTruckLoading />}>
             {/* TESTTTTT */}
             <MenuItem onClick={() => history.push('/products')}>Manage Products</MenuItem>
             <MenuItem onClick={() => history.push('/createProduct')}>Create new Product</MenuItem>
