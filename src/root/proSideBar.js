@@ -69,7 +69,7 @@ const SideBar = ({ history }) => {
           <SubMenu title={"Administration"} icon={<FaUserTie />}>
             <MenuItem onClick={() => history.push('/manageUsers')}>Manage Users</MenuItem>
             <MenuItem onClick={() => history.push('/createUser')}>Create User</MenuItem>
-            {/* <MenuItem onClick={() => history.push('/manageCompany')}>Manage Company</MenuItem> */}
+            <MenuItem onClick={() => history.push('/manageCompany')}>Manage Company</MenuItem>
           </SubMenu>
         </Menu>
         : null}
