@@ -6,8 +6,10 @@ import { capitalizeFirstLetter } from "../../utils/funcs";
 import { Loading } from "../../utils/loading";
 import { useToasts } from 'react-toast-notifications';
 import { InfoCircle } from "react-bootstrap-icons";
+import Countries from "./countries.json";
 
 const Company = () => {
+
     const { addToast } = useToasts();
     const { currentUser } = useContext(AuthContext);
     const [companyInfo, setCompanyInfo] = useState(null);
@@ -23,6 +25,7 @@ const Company = () => {
     const [changeDistrict, setChangeDistrict] = useState(false);
     const [districtData, setDistrictData] = useState('');
     
+
     const [changeAddress, setChangeAddress] = useState(false);
     const [addressData, setAddressData] = useState('');
 
@@ -63,6 +66,9 @@ const Company = () => {
     const handleShowPhoneNumber = () => setChangePhoneNumber(true);
     const handleClosePhoneNumber = () => {setChangePhoneNumber(false);setPhoneNumberData(null)};
 
+    
+    console.log(Countries.countries);
+    
     useEffect(() => {
         getCompanyData(currentUser?.companyInfo)
     });
@@ -122,10 +128,10 @@ const Company = () => {
     useEffect(() => {
         let isAvalible = /^[0-9.-]*$/.test(postalcodeData);
         let isDisable= /^[0-9]*$/.test(postalcodeData);
-        if (!postalcodeData  ) {
+        if (!postalcodeData || !isAvalible || isDisable ) {
             setValidInput(true);
             return;
-        } else if(isAvalible && !isDisable){
+        } else {
             setValidInput(false);
             return;
         }
@@ -194,10 +200,9 @@ const Company = () => {
     const updatePostalCode = () => {
         let isAvalible = /^[0-9.-]*$/.test(postalcodeData);
         let isDisable= /^[0-9]*$/.test(postalcodeData);
-        addToast(''+isDisable, { appearance: 'error', autoDismiss: 'true' });
         if(postalcodeData === '' || !isAvalible || isDisable ){
             handleClosePostalCode();
-            addToast('The input of Postal Code is empty', { appearance: 'error', autoDismiss: 'true' });
+            addToast('The input of Postal Code is empty and need contais', { appearance: 'error', autoDismiss: 'true' });
         }
         app.database().ref('/companyData/' + currentUser?.companyInfo.id + '/Information').child('codpostal').set(String(postalcodeData));
         handleClosePostalCode();
@@ -247,14 +252,14 @@ const Company = () => {
                     <br />
                     <Card style={{marginTop: '10px'}}>
                         <Card.Header>
-                        <h1>Location</h1>
+                        <h5>Location</h5>
                         </Card.Header>
                      
                         {/*Pais*/}
                         <Card style={{margin: '10px'}}>
                             <Card.Body>
                             <div style={{display: 'inline-flex'}}>
-                                <h3>Country: {capitalizeFirstLetter(companyInfo.pais)}</h3>
+                                <h8>Country: {capitalizeFirstLetter(companyInfo.pais)}</h8>
                                 <Button style={{position: 'absolute', right: '20px', left: 'auto'}} variant='info' onClick={() => handleShowCountry()}>Change Country</Button>
                             </div>
                             
@@ -267,7 +272,13 @@ const Company = () => {
                             <Modal.Body>
                                 <Form.Group controlId="inputCountry">
                                     <Form.Label>Country</Form.Label>
-                                    <Form.Control placeholder="Enter the Country" value={countryData} onChange={e => setCountryData(e.target.value) } />
+                                    <Form.Control as="select" value={countryData} onChange={e => setCountryData(e.target.value)}>
+                                        {Countries.countries.map((item, i) => (
+                                            
+                                                <option key={i} value={item.name}>{item.name}</option>
+                                            
+                                        ))}
+                                    </Form.Control>
                                 </Form.Group>
                             </Modal.Body>
                             <Modal.Footer>
@@ -284,7 +295,7 @@ const Company = () => {
                         <Card style={{margin: '10px'}}>
                             <Card.Body>
                             <div style={{display: 'inline-flex'}}>
-                                <h3>District: {capitalizeFirstLetter(companyInfo.distrito)}</h3>
+                                <h8>District: {capitalizeFirstLetter(companyInfo.distrito)}</h8>
                                 <Button style={{position: 'absolute', right: '20px', left: 'auto'}} variant='info' onClick={() => handleShowDistrict()}>Change District</Button>
                             </div>
                             
@@ -314,7 +325,7 @@ const Company = () => {
                         <Card style={{margin: '10px'}}>
                             <Card.Body>
                             <div style={{display: 'inline-flex'}}>
-                                <h3>Address: {capitalizeFirstLetter(companyInfo.rua)}</h3>
+                                <h8>Address: {capitalizeFirstLetter(companyInfo.rua)}</h8>
                                 <Button style={{position: 'absolute', right: '20px', left: 'auto'}} variant='info' onClick={() => handleShowAddress()}>Change Address</Button>
                             </div>
                             
@@ -339,12 +350,13 @@ const Company = () => {
                             </Button>
                             </Modal.Footer>
                         </Modal>
-                                            
+
+
                         {/*CodPostal*/}
                         <Card style={{margin: '10px'}}>
                             <Card.Body>
                             <div style={{display: 'inline-flex'}}>
-                                <h3>Postal Code: {capitalizeFirstLetter(companyInfo.codpostal)}</h3>
+                                <h8>Postal Code: {capitalizeFirstLetter(companyInfo.codpostal)}</h8>
                                 <Button style={{position: 'absolute', right: '20px', left: 'auto'}} variant='info' onClick={() => handleShowPostalCode()}>Change Postal Code</Button>
                             </div>
                             
@@ -373,7 +385,7 @@ const Company = () => {
                     </Card>
                     <Card style={{marginTop: '10px'}}>
                         <Card.Header>
-                        <h1>Contact</h1>
+                        <h5>Contact</h5>
                         </Card.Header>
                      
                         {/*Email*/}
@@ -382,7 +394,7 @@ const Company = () => {
                             <Card.Body>
                             <div style={{display: 'inline-flex'}}>
                                 {/* Location of company               get local of company*/}
-                                <h3>Email: {capitalizeFirstLetter(companyInfo.email)}</h3>
+                                <h8>Email: {capitalizeFirstLetter(companyInfo.email)}</h8>
                                 {/* Create button in left of location for change localization */}
                                 {/*   ocupar td o espaço que pode       marginright   encostar a esquerda*/}     {/*1. onClick to const in toppage  a*/}
                                 <Button style={{position: 'absolute', right: '20px', left: 'auto'}} variant='info' onClick={() => handleShowEmail()}>Change Email</Button>
@@ -421,7 +433,7 @@ const Company = () => {
                         <Card style={{margin: '10px'}}>
                             <Card.Body>
                             <div style={{display: 'inline-flex'}}>
-                                <h3>Phone number: {capitalizeFirstLetter(companyInfo.telefone)}</h3>
+                                <h8>Phone number: {capitalizeFirstLetter(companyInfo.telefone)}</h8>
                                 
                                 
                                 <Button style={{position: 'absolute', right: '20px', left: 'auto'}} variant='info' onClick={() => handleShowPhoneNumber()}>Change Phone Number</Button>
