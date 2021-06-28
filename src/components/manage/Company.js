@@ -259,7 +259,7 @@ const Company = () => {
                         <Card style={{margin: '10px'}}>
                             <Card.Body>
                             <div style={{display: 'inline-flex'}}>
-                                <h8>Country: {capitalizeFirstLetter(companyInfo.pais)}</h8>
+                                <h8>Country:&nbsp;</h8><h8> {capitalizeFirstLetter(companyInfo.pais)}</h8>
                                 <Button style={{position: 'absolute', right: '20px', left: 'auto'}} variant='info' onClick={() => handleShowCountry()}>Change Country</Button>
                             </div>
                             
@@ -295,7 +295,7 @@ const Company = () => {
                         <Card style={{margin: '10px'}}>
                             <Card.Body>
                             <div style={{display: 'inline-flex'}}>
-                                <h8>District: {capitalizeFirstLetter(companyInfo.distrito)}</h8>
+                                <h8>District:&nbsp;</h8><h8> {capitalizeFirstLetter(companyInfo.distrito)}</h8>
                                 <Button style={{position: 'absolute', right: '20px', left: 'auto'}} variant='info' onClick={() => handleShowDistrict()}>Change District</Button>
                             </div>
                             
@@ -325,7 +325,7 @@ const Company = () => {
                         <Card style={{margin: '10px'}}>
                             <Card.Body>
                             <div style={{display: 'inline-flex'}}>
-                                <h8>Address: {capitalizeFirstLetter(companyInfo.rua)}</h8>
+                                <h8>Address:&nbsp;</h8><h8>  {capitalizeFirstLetter(companyInfo.rua)}</h8>
                                 <Button style={{position: 'absolute', right: '20px', left: 'auto'}} variant='info' onClick={() => handleShowAddress()}>Change Address</Button>
                             </div>
                             
@@ -356,7 +356,7 @@ const Company = () => {
                         <Card style={{margin: '10px'}}>
                             <Card.Body>
                             <div style={{display: 'inline-flex'}}>
-                                <h8>Postal Code: {capitalizeFirstLetter(companyInfo.codpostal)}</h8>
+                                <h8>Postal Code:&nbsp;</h8><h8>  {capitalizeFirstLetter(companyInfo.codpostal)}</h8>
                                 <Button style={{position: 'absolute', right: '20px', left: 'auto'}} variant='info' onClick={() => handleShowPostalCode()}>Change Postal Code</Button>
                             </div>
                             
@@ -394,7 +394,7 @@ const Company = () => {
                             <Card.Body>
                             <div style={{display: 'inline-flex'}}>
                                 {/* Location of company               get local of company*/}
-                                <h8>Email: {capitalizeFirstLetter(companyInfo.email)}</h8>
+                                <h8>Email:&nbsp;</h8><h8>  {capitalizeFirstLetter(companyInfo.email)}</h8>
                                 {/* Create button in left of location for change localization */}
                                 {/*   ocupar td o espaço que pode       marginright   encostar a esquerda*/}     {/*1. onClick to const in toppage  a*/}
                                 <Button style={{position: 'absolute', right: '20px', left: 'auto'}} variant='info' onClick={() => handleShowEmail()}>Change Email</Button>
@@ -433,7 +433,7 @@ const Company = () => {
                         <Card style={{margin: '10px'}}>
                             <Card.Body>
                             <div style={{display: 'inline-flex'}}>
-                                <h8>Phone number: {capitalizeFirstLetter(companyInfo.telefone)}</h8>
+                                <h8>Phone number:&nbsp;</h8><h8> {capitalizeFirstLetter(companyInfo.telefone)}</h8>
                                 
                                 
                                 <Button style={{position: 'absolute', right: '20px', left: 'auto'}} variant='info' onClick={() => handleShowPhoneNumber()}>Change Phone Number</Button>
