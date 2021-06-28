@@ -74,7 +74,7 @@ const ProductsOfInvoiceTable = (props) => {
         <tr>
           <th style={{textAlign: 'center'}}>Product ID</th>
           <th style={{textAlign: 'center'}}>Product name</th>
-          {/* <th style={{textAlign: 'center'}}>Product type</th> */}
+          <th style={{textAlign: 'center'}}>Product type</th>
           <th style={{textAlign: 'center'}}>Product localization</th>
           <th style={{textAlign: 'center'}}>Quantity</th>
         </tr>
@@ -86,7 +86,7 @@ const ProductsOfInvoiceTable = (props) => {
               <tr key={key}>
                 <td style={{textAlign: 'end'}}>{movement.idProduct}</td>
                 <td style={{textAlign: 'center'}}>{products.filter(p => p.id === movement.idProduct)[0].name ?? '--'}</td>
-                {/* <td style={{textAlign: 'center'}}>{productsType.filter(p => p.id === products.filter(p => p.id === movement.idProduct)[0].productType)[0].type ?? '--'}</td> */}
+                <td style={{textAlign: 'center'}}>{productsType.filter(p => p.id === products.filter(p => p.id === movement.idProduct)[0].productType)[0].type ?? '--'}</td>
                 <td style={{textAlign: 'center'}}>{products.filter(p => p.id === movement.idProduct)[0].localization ?? '--'}</td>
                 <td style={{textAlign: 'end'}}>{movement.quantity}</td>
               </tr>)

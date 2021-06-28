@@ -59,7 +59,7 @@ const ProductForm = (props) => {
                         <Form.Label>Stock quantity <Asterisk style={{marginBottom: '3px', color: '#bd2130'}} size={11} /></Form.Label>
                         <Form.Control placeholder="Enter the Stock Quantity" value={newProduct?.quantStock} onChange={e => setNewProduct({ ...newProduct, quantStock: e.target.value })} />
                     </Form.Group>
-                    {/* <Form.Group controlId="inputTypeProduct">
+                    <Form.Group controlId="inputTypeProduct">
                         <Form.Label>Product Type <Asterisk style={{marginBottom: '3px', color: '#bd2130'}} size={11} /> </Form.Label>
                         <Form.Control as="select" selected={newProduct?.productType} value={newProduct?.productType} onChange={e => setNewProduct({ ...newProduct, productType: e.target.value })}>
                             {productType?.length > 0 ?
@@ -67,7 +67,7 @@ const ProductForm = (props) => {
                                     {productType.map((pType, key) => { return <option key={key} value={pType.id}>{pType.type}</option> })}
                                 </> : <option value={null} disabled>There are no product types inserted</option>}
                         </Form.Control>
-                    </Form.Group> */}
+                    </Form.Group>
                     <Form.Group controlId="inputLocalization">
                         <Form.Label>Localization</Form.Label>
                         <Form.Control placeholder="Enter the Localization" value={newProduct?.localization} onChange={e => setNewProduct({ ...newProduct, localization: e.target.value })} />

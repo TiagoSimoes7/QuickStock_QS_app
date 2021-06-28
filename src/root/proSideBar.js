@@ -49,13 +49,12 @@ const SideBar = ({ history }) => {
           </MenuItem>
         </Menu> */}
         <Menu iconShape="circle">
-          <SubMenu title={"Proooducts"} icon={<FaTruckLoading />}>
-            {/* TESTTTTT */}
+          <SubMenu title={"Products"} icon={<FaTruckLoading />}>
             <MenuItem onClick={() => history.push('/products')}>Manage Products</MenuItem>
             <MenuItem onClick={() => history.push('/createProduct')}>Create new Product</MenuItem>
             <MenuItem suffix={<span className="badge gray">Comming</span>}> Create VuMark</MenuItem>
             <MenuItem onClick={() => history.push('/deletedProducts')}>Manage Deleted Products</MenuItem>
-            {/* <MenuItem onClick={() => history.push('/productTypes')}>Manage Product Types</MenuItem> */}
+            <MenuItem onClick={() => history.push('/productTypes')}>Manage Product Types</MenuItem>
           </SubMenu>
         </Menu>
         <Menu iconShape="circle">
@@ -69,7 +68,7 @@ const SideBar = ({ history }) => {
           <SubMenu title={"Administration"} icon={<FaUserTie />}>
             <MenuItem onClick={() => history.push('/manageUsers')}>Manage Users</MenuItem>
             <MenuItem onClick={() => history.push('/createUser')}>Create User</MenuItem>
-            {/* <MenuItem onClick={() => history.push('/manageCompany')}>Manage Company</MenuItem> */}
+            <MenuItem onClick={() => history.push('/manageCompany')}>Manage Company</MenuItem>
           </SubMenu>
         </Menu>
         : null}
