@@ -18,7 +18,8 @@ export const AuthProvider = props => {
         app.auth().onAuthStateChanged(user => {
             if (user){
                 app.database().ref('/quickStockUsers').on('value',  snapshot => {
-                    const userFilter = snapshot.val().filter(company => company.email === user.email);
+                    if (!snapshot?.val()) return
+                    const userFilter = Object.values(snapshot.val()).filter(u => u.email === user.email);
                     if (userFilter.length > 0) {
                         if(userFilter[0].role === 'Warehouse employee'){
                             if(!forcedLogout){
@@ -30,10 +31,7 @@ export const AuthProvider = props => {
                             setCurrentUser({...user, companyInfo: info.val(), role: userFilter[0].role});
                         });
                         return;
-                    }else{
-                        addToast('ERROR: Please contact support', { appearance: 'error', autoDismiss: 'true' })
                     }
-                    
                 });
                 return;
             }
