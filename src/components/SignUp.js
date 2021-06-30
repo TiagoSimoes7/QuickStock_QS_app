@@ -75,7 +75,7 @@ const SignUp = ({history}) => {
                 await app.auth().createUserWithEmailAndPassword(`${email.value}@quickstock.${companyData.name}.com`, password.value);
 
                 app.database().ref('quickStockUsers/' + Number(lastUserID + 1)).set(newUser);
-                addToast(`User created `, { appearance: 'success', autoDismiss: 'true' });
+                addToast(`User created`, { appearance: 'success', autoDismiss: 'true' });
                 history.push("/");
             } catch (error) {
                 addToast(error.message, { appearance: 'error', autoDismiss: 'true' });
