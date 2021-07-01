@@ -120,7 +120,7 @@ const TablesCycle = (props) => {
         if(products?.length && props.oldMovements?.length > 0 && !listUpdated && props.edit){
             let listProducts = products;
             const listProductsAdd = props.oldMovements.map((movement) => {
-                const product = listProducts.filter(product => product.id === movement.idProduct);
+                const product = listProducts.filter(p => p.id === movement.idProduct);
                 if(product.length){
                     listProducts = listProducts.filter(p => p.id !== movement.idProduct);
                     return {...product[0], newQuantStock: movement.quantity}

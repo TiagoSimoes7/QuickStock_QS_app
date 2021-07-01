@@ -1,5 +1,5 @@
-import React, {useContext,  useEffect,  useState} from "react";
-import { withRouter, Redirect } from "react-router";
+import {useContext,  useEffect,  useState} from "react";
+import { withRouter } from "react-router";
 import app from "../../base.js";
 import { AuthContext } from "../../Auth";
 import UsersTable from "../../utils/tables/users-table";
