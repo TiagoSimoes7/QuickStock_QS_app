@@ -433,7 +433,7 @@ const Company = () => {
                             <Button variant="secondary" onClick={handleClosePhoneNumber}>
                                 Close
                             </Button>
-                            <Button disabled={validInput} variant="success" onClick={updatePhoneNumber}>
+                            <Button disabled={!validInput || phonenumberData === ""} variant="success" onClick={updatePhoneNumber}>
                                 Change Phone Number
                             </Button>
                             </Modal.Footer>
