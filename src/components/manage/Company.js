@@ -118,7 +118,7 @@ const Company = () => {
         if (!phonenumberData ) {
             setValidInput(true);
             return;
-        }else if(isDisable) {
+        }else if(!isDisable) {
             setValidInput(false);
             return;
         } 
