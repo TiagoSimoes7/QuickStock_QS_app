@@ -37,7 +37,7 @@ const EditInvoice = (props) => {
     }
 
     const createMovements = async (movements, newID, invoice, update) => {
-        if(movements.length < 0){
+        if(movements.length === 0){
             return;
         }
         await movements.map((movement) => {
@@ -57,7 +57,7 @@ const EditInvoice = (props) => {
     }
 
     const editMovements = async (movements, update) => {
-        if(movements.length < 0){
+        if(movements.length === 0){
             return;
         }
         await movements.map((movement) => {
@@ -75,7 +75,7 @@ const EditInvoice = (props) => {
     }
 
     const deleteMovements = async (movements, update) => {
-        if(movements.length < 0){
+        if(movements.length === 0){
             return;
         }
         await movements.map((movement) => {

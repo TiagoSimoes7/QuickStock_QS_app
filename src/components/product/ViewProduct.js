@@ -8,8 +8,8 @@ import { Card, Col, Row } from 'react-bootstrap';
 
 const ViewProduct = (props) => {
     const [product, setProduct] = useState(props.location.state.selectedProduct); 
+    const [productType, setProductType] = useState(null); 
     const { currentUser } = useContext(AuthContext);
-    const [productType, setProductType] = useState(null);
 
     useEffect(() => {
         if(currentUser){
@@ -22,9 +22,11 @@ const ViewProduct = (props) => {
         return <Redirect to="/products" />;
     }
     const getProductsType = (companyID) => {
-        app.database().ref('/companyData/' + companyID + '/ProductTypes').on('value', snapshot => {
-            setProductType(snapshot.val().filter(m => m !== undefined));
-        });
+        if (product.productType != null){
+            app.database().ref('/companyData/' + companyID + '/ProductTypes').on('value', snapshot => {
+                setProductType(snapshot.val().filter(p => p.id === product.productType)[0]?.type)
+            });
+        }   
     };
 
     const getProduct = (companyID, productID) => {
@@ -63,7 +65,7 @@ const ViewProduct = (props) => {
                         <p className="mb-0">Description: {product.description ? product.description : '--'}</p>
                         <p className="mb-0">Stock quantity: {product.quantStock}</p>
                         <p className="mb-0">Localization: {product.localization ? product.localization : '--'}</p>
-                        {/* <p className="mb-0">Type: {product.productType !== null && productType !== null ? productType.find(type => type.id === product.productType).type : '--'}</p> */}
+                        <p className="mb-0">Type: {productType !== null ? productType : '--'}</p>
                     </blockquote>
                 </Col>
             </Row>

@@ -96,7 +96,7 @@ const ProductsTypesTable = (props) => {
                         <td>{product.type}</td>
                         <td>
                         <ButtonGroup style={{display: 'flex'}}>
-                            <Button variant="info" onClick={() => changeView(product, 'edit')}>Edit</Button>
+                            <Button variant="info" onClick={() => changeView(product)}>Edit</Button>
                             <Button variant="danger" onClick={() => handleShow(product)}>Delete</Button>
                         </ButtonGroup>
                         </td>

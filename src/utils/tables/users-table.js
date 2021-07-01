@@ -27,7 +27,7 @@ const UsersTable = (props) => {
     const [selectedUser, setSelectedUser] = useState(null);
     const [type, setType] = useState(null);
 
-    const handleShow = (user, type) => {setSelectedUser(user); setType(type)};
+    const handleShow = (user, t) => {setSelectedUser(user); setType(t)};
 
     const handleClose = () => setSelectedUser(null);
 

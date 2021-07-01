@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../Auth";
 import { withRouter } from "react-router";
 import { InfoCircle } from "react-bootstrap-icons";
 
 const Home = () => {
-    const {currentUser} = useContext(AuthContext);
     return (
         <div style={{textAlign: 'center', width: '100%', height: '100%'}}>
             <h1>Welcome</h1>

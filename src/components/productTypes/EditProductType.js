@@ -13,6 +13,7 @@ const EditProductType = (props) => {
     }
 
     const editProductType = async (productType) => {
+        console.log(productType)
         app.database().ref('/companyData/' + currentUser.companyInfo.id + '/ProductTypes').child(productType.id).set({id: Number(productType.id), type: String(productType.type)})
         .then(() => {props.history.push('/productTypes'); addToast('Product Type ' + productType.type + ' edited with success', { appearance: 'success', autoDismiss: 'true' })}).catch(error => console.log(error));
     }
